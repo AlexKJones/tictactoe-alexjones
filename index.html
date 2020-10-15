@@ -12,6 +12,62 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>TicTacToe</h1>
+      <section class="container" class="col-12">
+
+<!-- This area is for the log in, sign up, and log out screens -->
+
+        <section class="top-section">
+
+          <form id="sign-up-form">
+            <input name="email[email]" type="text" placeholder="Email">
+            <input name="password[password]" type="text" placeholder="Password">
+            <input name="password-confirmation[password]" type="text" placeholder="Password Confirmation">
+            <button type="submit">Sign Up</button>
+          </form>
+          <form id="sign-in-form">
+            <input name="email[email]" type="text" placeholder="Email">
+            <input name="password[password]" type="text" placeholder="Password">
+            <button type="submit">Sign In</button>
+          </form>
+          <div id="sign-out-form">
+            <div>Welcome 'username'</div>
+            <button type="submit">Games Played</button>
+            <button type="submit">Sign Out</button>
+          </div>
+          <form id="change-password-form">
+            <input name="oldpw[password]" type="text" placeholder="Old Password">
+            <input name="newpw[password]" type="text" placeholder="New Password">
+            <button type="submit">Sign Up</button>
+          </form>
+        </section>
+
+<!-- This area is for the game board -->
+
+        <section class="middle-section" class="container">
+            <div class="row">
+              <div class="col-4" id="box-top-left">topleff</div>
+              <div class="col-4" id="box-top-middle">topmid</div>
+              <div class="col-4" id="box-top-right">toprite</div>
+            </div>
+              <div class="row">
+              <div class="col-4" id="box-middle-left">midleff</div>
+              <div class="col-4" id="box-middle-middle">mid</div>
+              <div class="col-4" id="box-middle-right">midrite</div>
+            </div>
+            <div class="row">
+              <div class="col-4" id="box-bottom-left">botleff</div>
+              <div class="col-4" id="box-bottom-middle">botmid</div>
+              <div class="col-4" id="box-bottom-right">botrite</div>
+            </div>
+        </section>
+
+<!-- This section is for feedback to the user -->
+
+        <section class="bottom-section">
+          <div class"col-10" id="notifications">Hello User
+          </div>
+        </section>
+      </section>
     </body>
 </html>

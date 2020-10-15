@@ -1,1 +1,44 @@
 @import '~bootstrap/scss/bootstrap';
+
+h1 {
+  color: orange;
+  border: 10px dotted;
+  border-left: orange;
+  border-color: green;
+}
+
+div{
+border: 1px dotted white;
+}
+
+section {
+  border-style: 5px solid;
+  border-color: blue;
+}
+
+.container {
+  border: 2px solid black;
+}
+
+.top-section {
+  background-color: yellow;
+  border: 1px solid black;
+}
+
+.middle-section {
+  background-color: orange;
+  border: 8px solid black;
+}
+
+.bottom-section {
+  background-color: teal;
+  border: 1px solid black;
+}
+
+.row {
+  margin: 5px;
+}
+
+#notifications {
+  border: 1px solid green;
+}
