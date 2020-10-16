@@ -55,6 +55,78 @@ const signOutFailure = function (error) {
   $("#notification").text('Error, Could not sign out')
   console.log('sign out failed')
 }
+let gameCount = 0
+const startGameSuccess = function () {
+  $("#notification").text('Game Started')
+  $('#game-board').show()
+  $(gameCount++)
+}
+
+const startGameFailure = function () {
+  $("#notification").text('Game could not start')
+}
+
+const checkGameSuccess = function () {
+  $("#notification").text('You have played ' + gameCount + ' games so far.')
+}
+
+const checkGameFailure = function () {
+  $("#notification").text('could not give gamecount somethings wrong')
+}
+const topLeftSuccess = function () {
+  $("#notification").text('Top Left Clicked')
+}
+const topLeftFailure = function () {
+  $("#notification").text('Top Left not working')
+}
+const topMiddleSuccess = function () {
+  $("#notification").text('Top Middle Clicked')
+}
+const topMiddleFailure = function () {
+  $("#notification").text('Top Middle not working')
+}
+const topRightSuccess = function () {
+  $("#notification").text('Top Right Clicked')
+}
+const topRightFailure = function () {
+  $("#notification").text('Top Right not working')
+}
+const middleLeftSuccess = function () {
+  $("#notification").text('middle Left Clicked')
+}
+const middleLeftFailure = function () {
+  $("#notification").text('middle Left not working')
+}
+const middleMiddleSuccess = function () {
+  $("#notification").text('middle Middle Clicked')
+}
+const middleMiddleFailure = function () {
+  $("#notification").text('middle Middle not working')
+}
+const middleRightSuccess = function () {
+  $("#notification").text('middle Right Clicked')
+}
+const middleRightFailure = function () {
+  $("#notification").text('middle Right not working')
+}
+const bottomLeftSuccess = function () {
+  $("#notification").text('bottom Left Clicked')
+}
+const bottomLeftFailure = function () {
+  $("#notification").text('bottom Left not working')
+}
+const bottomMiddleSuccess = function () {
+  $("#notification").text('bottom Middle Clicked')
+}
+const bottomMiddleFailure = function () {
+  $("#notification").text('bottom Middle not working')
+}
+const bottomRightSuccess = function () {
+  $("#notification").text('bottom Right Clicked')
+}
+const bottomRightFailure = function () {
+  $("#notification").text('bottom Right not working')
+}
 
 module.exports = {
   signUpSuccess,
@@ -64,5 +136,27 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  startGameSuccess,
+  startGameFailure,
+  checkGameSuccess,
+  checkGameFailure,
+  topLeftSuccess,
+  topLeftFailure,
+  topMiddleSuccess,
+  topMiddleFailure,
+  topRightSuccess,
+  topRightFailure,
+  middleLeftSuccess,
+  middleLeftFailure,
+  middleMiddleSuccess,
+  middleMiddleFailure,
+  middleRightSuccess,
+  middleRightFailure,
+  bottomLeftSuccess,
+  bottomLeftFailure,
+  bottomMiddleSuccess,
+  bottomMiddleFailure,
+  bottomRightSuccess,
+  bottomRightFailure
 }
