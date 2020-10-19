@@ -3,6 +3,7 @@
 const getFormFields = require('./../../../lib/get-form-fields')
 const ui = require('./ui')
 const api = require('./api')
+const store = require('./../store')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -40,6 +41,7 @@ const onStartGame = function (event) {
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
+  console.log('this is data in start game ', data)
   api.startGame(data)
     .then(ui.startGameSuccess)
     .catch(ui.startGameFailure)
@@ -52,77 +54,30 @@ const onCheckGame = function (event) {
     .then(ui.checkGameSuccess)
     .catch(ui.checkGameFailure)
 }
-const onTopLeft = function (event) {
+
+const onBoxClick = (event) => {
   event.preventDefault()
-  const form = event.target
-  const data = getFormFields(form)
-  api.checkGame(data)
-    .then(ui.topLeftSuccess)
-    .catch(ui.topLeftFailure)
-}
-const onTopMiddle = function (event) {
-  event.preventDefault()
-  const form = event.target
-  const data = getFormFields(form)
-  api.checkGame(data)
-    .then(ui.topMiddleSuccess)
-    .catch(ui.topMiddleFailure)
-}
-const onTopRight = function (event) {
-  event.preventDefault()
-  const form = event.target
-  const data = getFormFields(form)
-  api.checkGame(data)
-    .then(ui.topRightSuccess)
-    .catch(ui.topRightFailure)
-}
-const onMiddleLeft = function (event) {
-  event.preventDefault()
-  const form = event.target
-  const data = getFormFields(form)
-  api.checkGame(data)
-    .then(ui.middleLeftSuccess)
-    .catch(ui.middleLeftFailure)
-}
-const onMiddleMiddle = function (event) {
-  event.preventDefault()
-  const form = event.target
-  const data = getFormFields(form)
-  api.checkGame(data)
-    .then(ui.middleMiddleSuccess)
-    .catch(ui.middleMiddleFailure)
-}
-const onMiddleRight = function (event) {
-  event.preventDefault()
-  const form = event.target
-  const data = getFormFields(form)
-  api.checkGame(data)
-    .then(ui.middleRightSuccess)
-    .catch(ui.middleRightFailure)
-}
-const onBottomLeft = function (event) {
-  event.preventDefault()
-  const form = event.target
-  const data = getFormFields(form)
-  api.checkGame(data)
-    .then(ui.bottomLeftSuccess)
-    .catch(ui.bottomLeftFailure)
-}
-const onBottomMiddle = function (event) {
-  event.preventDefault()
-  const form = event.target
-  const data = getFormFields(form)
-  api.checkGame(data)
-    .then(ui.bottomMiddleSuccess)
-    .catch(ui.bottomMiddleFailure)
-}
-const onBottomRight = function (event) {
-  event.preventDefault()
-  const form = event.target
-  const data = getFormFields(form)
-  api.checkGame(data)
-    .then(ui.bottomRightSuccess)
-    .catch(ui.bottomRightFailure)
+  const box = $(event.target)
+  const boxIndex = box.data('cell-index')
+  console.log('this is box index ', boxIndex)
+  box.data('index', boxIndex)
+  box.data('value', store.currentPlayer)
+  box.text(store.currentPlayer)
+  box.css('background', 'transparent')
+  const data = {
+    game: {
+      cell: {
+        index: boxIndex,
+        value: store.currentPlayer
+      },
+      over: false
+    }
+  }
+  console.log('data is ', data)
+  api.updateGame(data)
+    .then(ui.onBoxClickSuccess)
+    .catch(ui.onBoxClickFailure)
+  store.currentPlayer = store.currentPlayer === 'O' ? 'X' : 'O'
 }
 
 module.exports = {
@@ -132,13 +87,5 @@ module.exports = {
   onSignOut,
   onStartGame,
   onCheckGame,
-  onTopLeft,
-  onTopMiddle,
-  onTopRight,
-  onMiddleLeft,
-  onMiddleMiddle,
-  onMiddleRight,
-  onBottomLeft,
-  onBottomMiddle,
-  onBottomRight
+  onBoxClick
 }

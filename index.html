@@ -31,7 +31,6 @@
             <button type="submit">Sign In</button>
           </form>
           <form id="sign-out">
-            <div>Welcome!</div>
             <button type="submit">Sign Out</button>
           </form>
           <form id="start-game">
@@ -49,21 +48,21 @@
 
 <!-- This area is for the game board -->
 
-        <section id="game-board" class="middle-section" class="container">
-            <div class="row">
-              <div class="col-4" id="top-left">topleff</div>
-              <div class="col-4" id="top-middle">topmid</div>
-              <div class="col-4" id="top-right">toprite</div>
+        <section id="game-board" class="middle-section container">
+            <div class="row h-100">
+              <div class="col-4 game-box box" id="top-left" data-cell-index='0'></div>
+              <div class="col-4 game-box box" id="top-middle" data-cell-index='1'></div>
+              <div class="col-4 game-box box" id="top-right" data-cell-index='2'></div>
             </div>
-              <div class="row">
-              <div class="col-4" id="middle-left">midleff</div>
-              <div class="col-4" id="middle-middle">mid</div>
-              <div class="col-4" id="middle-right">midrite</div>
+            <div class="row h-100">
+              <div class="col-4 game-box box" id="middle-left" data-cell-index='3'></div>
+              <div class="col-4 game-box box" id="middle-middle" data-cell-index='4'></div>
+              <div class="col-4 game-box box" id="middle-right" data-cell-index='5'></div>
             </div>
-            <div class="row">
-              <div class="col-4" id="bottom-left">botleff</div>
-              <div class="col-4" id="bottom-middle">botmid</div>
-              <div class="col-4" id="bottom-right">botrite</div>
+            <div class="row h-100">
+              <div class="col-4 game-box box" id="bottom-left" data-cell-index='6'></div>
+              <div class="col-4 game-box box" id="bottom-middle" data-cell-index='7'></div>
+              <div class="col-4 game-box box" id="bottom-right" data-cell-index='8'></div>
             </div>
         </section>
 

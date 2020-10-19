@@ -8,12 +8,22 @@ h1 {
 }
 
 div{
-border: 1px dotted white;
+border: 1px dotted blue;
+height: 55px;
+font-size: 30px;
 }
 
 section {
   border-style: 5px solid;
   border-color: blue;
+}
+
+.game-box {
+  min-height: calc(100% / 3);
+  &:hover {
+    background-color: aqua;
+  }
+  user-select: none;
 }
 
 .container {
@@ -36,7 +46,6 @@ section {
 }
 
 .row {
-  margin: 5px;
 }
 
 #notifications {

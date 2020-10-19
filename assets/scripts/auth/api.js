@@ -41,7 +41,7 @@ const startGame = function (data) {
     headers: {
       Authorization: 'Bearer ' + store.user.token
     },
-    method: 'GET',
+    method: 'POST',
     data: data
   })
 }
@@ -55,9 +55,9 @@ const checkGame = function (data) {
     data: data
   })
 }
-const topLeft = function (data) {
+const updateGame = function (data) {
   return $.ajax({
-    url: config.apiUrl + '/games/:id',
+    url: config.apiUrl + '/games/' + store.game._id,
     headers: {
       Authorization: 'Bearer ' + store.user.token
     },
@@ -65,86 +65,7 @@ const topLeft = function (data) {
     data: data
   })
 }
-const topMiddle = function (data) {
-  return $.ajax({
-    url: config.apiUrl + '/games/:id',
-    headers: {
-      Authorization: 'Bearer ' + store.user.token
-    },
-    method: 'PATCH',
-    data: data
-  })
-}
-const topRight = function (data) {
-  return $.ajax({
-    url: config.apiUrl + '/games/:id',
-    headers: {
-      Authorization: 'Bearer ' + store.user.token
-    },
-    method: 'PATCH',
-    data: data
-  })
-}
-const middleLeft = function (data) {
-  return $.ajax({
-    url: config.apiUrl + '/games/:id',
-    headers: {
-      Authorization: 'Bearer ' + store.user.token
-    },
-    method: 'PATCH',
-    data: data
-  })
-}
-const middleMiddle = function (data) {
-  return $.ajax({
-    url: config.apiUrl + '/games/:id',
-    headers: {
-      Authorization: 'Bearer ' + store.user.token
-    },
-    method: 'PATCH',
-    data: data
-  })
-}
-const middleRight = function (data) {
-  return $.ajax({
-    url: config.apiUrl + '/games/:id',
-    headers: {
-      Authorization: 'Bearer ' + store.user.token
-    },
-    method: 'PATCH',
-    data: data
-  })
-}
-const bottomLeft = function (data) {
-  return $.ajax({
-    url: config.apiUrl + '/games/:id',
-    headers: {
-      Authorization: 'Bearer ' + store.user.token
-    },
-    method: 'PATCH',
-    data: data
-  })
-}
-const bottomMiddle = function (data) {
-  return $.ajax({
-    url: config.apiUrl + '/games/:id',
-    headers: {
-      Authorization: 'Bearer ' + store.user.token
-    },
-    method: 'PATCH',
-    data: data
-  })
-}
-const bottomRight = function (data) {
-  return $.ajax({
-    url: config.apiUrl + '/games/:id',
-    headers: {
-      Authorization: 'Bearer ' + store.user.token
-    },
-    method: 'PATCH',
-    data: data
-  })
-}
+
 module.exports = {
   signUp,
   signIn,
@@ -152,13 +73,5 @@ module.exports = {
   signOut,
   startGame,
   checkGame,
-  topLeft,
-  topMiddle,
-  topRight,
-  middleLeft,
-  middleMiddle,
-  middleRight,
-  bottomLeft,
-  bottomMiddle,
-  bottomRight
+  updateGame
 }
