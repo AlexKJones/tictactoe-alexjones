@@ -79,16 +79,15 @@ const checkGameFailure = function () {
   $("#notification").text('could not give gamecount somethings wrong')
 }
 const onBoxClickSuccess = function (response) {
-  $("#notification").text('Piece placed')
   store.game = response.game
   console.log(store.game)
+  $("#notification").text('Piece placed! Now its your turn, ' + store.currentPlayer)
   gameover.isGameOver()
 }
 
 const onBoxClickFailure = function () {
   $("#notification").text('Piece not Placed')
 }
-
 
 module.exports = {
   signUpSuccess,

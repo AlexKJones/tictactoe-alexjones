@@ -1,10 +1,19 @@
 @import '~bootstrap/scss/bootstrap';
 
+// color palette #CE6A6C  #EBADA1  #BED3C3 #4B919E #222F53
+
+body {
+  height: 100vh;
+  background-color:  #BED3C3;
+}
+
 h1 {
-  color: orange;
-  border: 10px dotted;
-  border-left: orange;
-  border-color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #222F53;
+  border: 5px dotted;
+  border-color: #4B919E;
 }
 
 div{
@@ -18,30 +27,32 @@ section {
   border-color: blue;
 }
 
+.container {
+}
+
 .game-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-height: calc(100% / 3);
   &:hover {
-    background-color: aqua;
+    background-color: #CE6A6C;
   }
   user-select: none;
 }
 
-.container {
-  border: 2px solid black;
-}
-
 .top-section {
-  background-color: yellow;
+  background-color: #222F53;
   border: 1px solid black;
 }
 
 .middle-section {
-  background-color: orange;
+  background-color: #EBADA1;
   border: 8px solid black;
 }
 
 .bottom-section {
-  background-color: teal;
+  background-color: #CE6A6C;
   border: 1px solid black;
 }
 
