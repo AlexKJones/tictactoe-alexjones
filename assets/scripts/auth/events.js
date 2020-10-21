@@ -6,6 +6,7 @@ const api = require('./api')
 const store = require('./../store')
 const gameover = require('./gameover')
 
+let gameCount = 1
 const onSignUp = function (event) {
   event.preventDefault()
   const form = event.target
@@ -58,33 +59,38 @@ const onCheckGame = function (event) {
 
 const onBoxClick = (event) => {
   if (gameover.isGameOver() === false) {
-  event.preventDefault()
-  const box = $(event.target)
-  const boxIndex = box.data('cell-index')
-  console.log('this is box index ', boxIndex)
-  box.data('index', boxIndex)
-  box.data('value', store.currentPlayer)
-  box.text(store.currentPlayer)
-  box.css('background', '#4B919E')
-  box.css('color', '#BED3C3')
-  const data = {
-    game: {
-      cell: {
-        index: boxIndex,
-        value: store.currentPlayer
-      },
-      over: gameover.isGameOver()
+    event.preventDefault()
+    const box = $(event.target)
+    const boxIndex = box.data('cell-index')
+    console.log('this is box index ', boxIndex)
+    box.data('index', boxIndex)
+    box.data('value', store.currentPlayer)
+    if (boxIndex !== "") {
+      box.text(store.currentPlayer)
+      box.css('background', '#4B919E')
+      box.css('color', '#BED3C3')
+      const data = {
+        game: {
+          cell: {
+            index: boxIndex,
+            value: store.currentPlayer
+          },
+          over: gameover.isGameOver()
+        }
+      }
+
+      console.log('data is ', data)
+      const boxBoxIndex = boxIndex
+      console.log('boxboxindex is ' + boxBoxIndex)
+      api.updateGame(data)
+        .then(ui.onBoxClickSuccess)
+        .catch(ui.onBoxClickFailure)
+      store.currentPlayer = store.currentPlayer === 'O' ? 'X' : 'O'
     }
+  } else {
+    gameCount++
+    return gameCount
   }
-  console.log('data is ', data)
-  const boxBoxIndex = boxIndex
-  console.log('boxboxindex is ' + boxBoxIndex)
-  api.updateGame(data)
-    .then(ui.onBoxClickSuccess)
-    .catch(ui.onBoxClickFailure)
-  store.currentPlayer = store.currentPlayer === 'O' ? 'X' : 'O'
-  $(event.target).off('click')
-}
 }
 
 module.exports = {
@@ -94,5 +100,6 @@ module.exports = {
   onSignOut,
   onStartGame,
   onCheckGame,
-  onBoxClick
+  onBoxClick,
+  gameCount
 }

@@ -2,6 +2,7 @@
 
 const store = require('./../store')
 const gameover = require('./gameover')
+const events = require('./events')
 
 const signUpSuccess = function (response) {
   $("#notification").text('Thanks for signing up to play ' + response.user.email)
@@ -49,6 +50,7 @@ const signOutSuccess = function () {
   $('#start-game').hide()
   $('#sign-up-form').show()
   $('#sign-in-form').show()
+  $('#game-board').hide()
   console.log('sign out worked')
 }
 
@@ -56,7 +58,6 @@ const signOutFailure = function (error) {
   $("#notification").text('Error, Could not sign out')
   console.log('sign out failed')
 }
-let gameCount = 0
 const startGameSuccess = function (response) {
   store.game = response.game
   store.game.id = response.game.id
@@ -64,7 +65,8 @@ const startGameSuccess = function (response) {
   console.log('this is the store in start game ', store)
   $("#notification").text('Game Started')
   $('#game-board').show()
-  $(gameCount++)
+  $('.box').text('')
+  $('.box').css('background', '#EBADA1')
 }
 
 const startGameFailure = function () {
