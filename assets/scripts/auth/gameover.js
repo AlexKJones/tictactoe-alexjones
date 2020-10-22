@@ -34,11 +34,13 @@ const isGameOver = function () {
       $("#notification").text('O WINS!!!')
       return true
     }
-} else {
-$("#notification").text('Its A Tie!!!')
-return true
-}
-return false
+  } else if ((index[0] !== "" || index[1] !== "" || index[2] !== "" ||
+  index[3] !== "" || index[4] !== "" || index[5] !== "" ||
+  index[6] !== "" || index[7] !== "" || index[8] !== "")) {
+    $("#notification").text('Its A Tie!!!')
+    return true
+  }
+  return false
 }
 
 module.exports = {
