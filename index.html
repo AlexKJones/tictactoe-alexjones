@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Example</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <h1>TicTacToe</h1>
+      <section class="container" class="col-12">
+
+<!-- This area is for the log in, sign up, and log out screens -->
+
+        <section class="top-section">
+
+          <form id="sign-up-form">
+            <input name="credentials[email]" type="text" placeholder="Email">
+            <input name="credentials[password]" type="text" placeholder="Password">
+            <input name="credentials[password_confirmation]" type="text" placeholder="Password Confirmation">
+            <button type="submit">Sign Up</button>
+          </form>
+          <form id="sign-in-form">
+            <input name="credentials[email]" type="text" placeholder="Email">
+            <input name="credentials[password]" type="text" placeholder="Password">
+            <button type="submit">Sign In</button>
+          </form>
+          <form id="sign-out">
+            <button type="submit">Sign Out</button>
+          </form>
+          <form id="start-game">
+            <button type="submit">Start New Game!</button>
+          </form>
+          <form id="check-games">
+            <button type="submit">Games Played</button>
+          </form>
+          <form id="change-password-form">
+            <input name="passwords[old]" type="text" placeholder="Old Password">
+            <input name="passwords[new]" type="text" placeholder="New Password">
+            <button type="submit">Change Password</button>
+          </form>
+        </section>
+
+<!-- This area is for the game board -->
+
+        <section id="game-board" class="middle-section container">
+            <div class="row h-100">
+              <div class="col-4 game-box box" id="top-left" data-cell-index='0'></div>
+              <div class="col-4 game-box box" id="top-middle" data-cell-index='1'></div>
+              <div class="col-4 game-box box" id="top-right" data-cell-index='2'></div>
+            </div>
+            <div class="row h-100">
+              <div class="col-4 game-box box" id="middle-left" data-cell-index='3'></div>
+              <div class="col-4 game-box box" id="middle-middle" data-cell-index='4'></div>
+              <div class="col-4 game-box box" id="middle-right" data-cell-index='5'></div>
+            </div>
+            <div class="row h-100">
+              <div class="col-4 game-box box" id="bottom-left" data-cell-index='6'></div>
+              <div class="col-4 game-box box" id="bottom-middle" data-cell-index='7'></div>
+              <div class="col-4 game-box box" id="bottom-right" data-cell-index='8'></div>
+            </div>
+        </section>
+
+<!-- This section is for feedback to the user -->
+
+        <section class="bottom-section">
+          <div class"col-10" id="notification">Welcome to Tic Tac Toe!</div>
+        </section>
+      </section>
+    </body>
+</html>
