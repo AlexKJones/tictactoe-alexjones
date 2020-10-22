@@ -7,6 +7,7 @@ const events = require('./events')
 const signUpSuccess = function (response) {
   $("#notification").text('Thanks for signing up to play ' + response.user.email)
   console.log('sign up worked')
+  $('form').trigger('reset')
 }
 
 const signUpFailure = function (error) {
@@ -24,6 +25,7 @@ const signInSuccess = function (response) {
   $('#sign-up-form').hide()
   $('#sign-in-form').hide()
   console.log('sign in worked')
+  $('form').trigger('reset')
 }
 
 const signInFailure = function (error) {
@@ -34,6 +36,7 @@ const signInFailure = function (error) {
 const changePasswordSuccess = function () {
   $("#notification").text('Thanks for changing your password!')
   console.log('pass change worked')
+  $('form').trigger('reset')
 }
 
 const changePasswordFailure = function (error) {
@@ -52,6 +55,7 @@ const signOutSuccess = function () {
   $('#sign-in-form').show()
   $('#game-board').hide()
   console.log('sign out worked')
+  $('form').trigger('reset')
 }
 
 const signOutFailure = function (error) {
@@ -73,8 +77,18 @@ const startGameFailure = function () {
   $("#notification").text('Game could not start')
 }
 
-const checkGameSuccess = function () {
-  $("#notification").text('You have played ' + gameCount + ' games so far.')
+const checkGameSuccess = function (res) {
+  console.log(res)
+  const games = res.games
+  $("#notification").text('You have played ' + games.length + ' games so far.')
+}
+const whoTurn = function (res) {
+  const games = res.games.length
+  if (games % 2 === 0) {
+    return 'X'
+  } else {
+    return 'O'
+  }
 }
 
 const checkGameFailure = function () {
@@ -105,5 +119,6 @@ module.exports = {
   checkGameSuccess,
   checkGameFailure,
   onBoxClickSuccess,
-  onBoxClickFailure
+  onBoxClickFailure,
+  whoTurn
 }

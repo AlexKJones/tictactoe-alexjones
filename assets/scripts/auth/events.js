@@ -50,9 +50,7 @@ const onStartGame = function (event) {
 }
 const onCheckGame = function (event) {
   event.preventDefault()
-  const form = event.target
-  const data = getFormFields(form)
-  api.checkGame(data)
+  api.checkGame()
     .then(ui.checkGameSuccess)
     .catch(ui.checkGameFailure)
 }
@@ -78,7 +76,6 @@ const onBoxClick = (event) => {
           over: gameover.isGameOver()
         }
       }
-
       console.log('data is ', data)
       const boxBoxIndex = boxIndex
       console.log('boxboxindex is ' + boxBoxIndex)
@@ -87,9 +84,6 @@ const onBoxClick = (event) => {
         .catch(ui.onBoxClickFailure)
       store.currentPlayer = store.currentPlayer === 'O' ? 'X' : 'O'
     }
-  } else {
-    gameCount++
-    return gameCount
   }
 }
 
@@ -100,6 +94,5 @@ module.exports = {
   onSignOut,
   onStartGame,
   onCheckGame,
-  onBoxClick,
-  gameCount
+  onBoxClick
 }
