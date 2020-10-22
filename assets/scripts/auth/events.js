@@ -6,7 +6,6 @@ const api = require('./api')
 const store = require('./../store')
 const gameover = require('./gameover')
 
-let gameCount = 1
 const onSignUp = function (event) {
   event.preventDefault()
   const form = event.target
@@ -43,7 +42,6 @@ const onStartGame = function (event) {
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
-  console.log('this is data in start game ', data)
   api.startGame(data)
     .then(ui.startGameSuccess)
     .catch(ui.startGameFailure)
@@ -60,7 +58,6 @@ const onBoxClick = (event) => {
     event.preventDefault()
     const box = $(event.target)
     const boxIndex = box.data('cell-index')
-    console.log('this is box index ', boxIndex)
     box.data('index', boxIndex)
     box.data('value', store.currentPlayer)
     if (boxIndex !== "") {
@@ -76,9 +73,6 @@ const onBoxClick = (event) => {
           over: gameover.isGameOver()
         }
       }
-      console.log('data is ', data)
-      const boxBoxIndex = boxIndex
-      console.log('boxboxindex is ' + boxBoxIndex)
       api.updateGame(data)
         .then(ui.onBoxClickSuccess)
         .catch(ui.onBoxClickFailure)
